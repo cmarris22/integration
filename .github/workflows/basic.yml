@@ -1,14 +1,26 @@
+#The name field gives your workflow a name. 
+#This name will be displayed in the Actions tab of your GitHub repository.
 name: Basic GitHub Actions Workflow
 
+
+#The on field specifies when your workflow should run.
+# In this case, it's configured to run on push events, pull_request events, and workflow_dispatch events.
 on:
   push:
   pull_request:
   workflow_dispatch:
 
+#The jobs field describes the jobs that make up your workflow. This workflow includes a single job called basic-job.
 jobs:
   basic-job:
     runs-on: ubuntu-latest
+    # The runs-on field inside the basic-job job specifies the type of machine to run the job on. 
+    # Here it is set to run on the latest available version of Ubuntu.
 
+# The steps field is a list of tasks to perform in the job. Each item in the list is a separate task. 
+# Here, we have one task that runs a basic shell command (echo "Hello, world!"). 
+# The name field gives the step a name that will be displayed in the GitHub Actions UI.
     steps:
     - name: Run a one-line script
       run: echo "Hello, world!"
+      #The run field specifies the command to run. Here, it's just echoing "Hello, world!" to the console.
